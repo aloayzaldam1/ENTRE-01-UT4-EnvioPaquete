@@ -55,9 +55,9 @@ public class Dimension
      */
     public String toString() {
         int anchura = 20;
-        String varAlto = String.format("\n%" + anchura + "s%10.2f", "Alto: ", alto);
-        String varAncho = String.format("\n%" + anchura + "s%10.2f", "Ancho: ", ancho);        
-        String varLargo = String.format("\n%" + anchura + "s%10.2f", "Largo: ", largo); 
+        String varAlto = String.format("\n%" + anchura + "s%10.2f(cm)", "Alto: ", alto);
+        String varAncho = String.format("\n%" + anchura + "s%10.2f(cm)", "Ancho: ", ancho);        
+        String varLargo = String.format("\n%" + anchura + "s%10.2f(cm)", "Largo: ", largo); 
         
         String formato = varAlto + varAncho + varLargo;
         

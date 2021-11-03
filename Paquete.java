@@ -89,7 +89,14 @@ public class Paquete
      *      
      */
     public double calcularPesoFacturable() {
-       return peso / calcularPesoVolumetrico();
+        double facturable = 0;
+        if(peso > calcularPesoVolumetrico())
+            facturable = peso;
+        else    {
+            peso = facturable;
+        }
+        
+        return facturable;
 
     }
 
@@ -111,11 +118,11 @@ public class Paquete
     public String toString() {
         int anchura = 20;
         
-        String varPeso = String.format("\n%" + anchura + "s%10.2f", "Peso Real: ", peso);
-        String varVolumen = String.format("\n%" + anchura + "s%10.2f", "Volumen: ", calcularVolumen());
-        String varVolumetrico = String.format("\n%" + anchura + "s%10.2f", "Peso volumétrico: ", calcularPesoVolumetrico());
+        String varPeso = String.format("\n%" + anchura + "s%10.2f(Kg)", "Peso Real: ", peso);
+        String varVolumen = String.format("\n%" + anchura + "s%10.2f(cm3)", "Volumen: ", calcularVolumen());
+        String varVolumetrico = String.format("\n%" + anchura + "s%10.2f(Kg)", "Peso volumétrico: ", calcularPesoVolumetrico());
         
-        String formato = "Descripcion del paquete: " + dimension.toString() + varPeso + varVolumen + varVolumetrico; 
+        String formato = "\nDescripcion del paquete " + dimension.toString() + varPeso + varVolumen + varVolumetrico; 
         return formato;
 
     }

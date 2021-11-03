@@ -86,8 +86,22 @@ public class Envio
      * si se añade como primero, segundo o tercero (no han de quedar huecos)
      */
     public void addPaquete(Paquete paquete) {
-        //TODO
-
+        
+        if(envioCompleto() == true)  {
+            System.out.println("No se admiten mas paquetes en el envio");
+        }
+        
+        else if(getNumeroPaquetes() == 2)  {
+            this.paquete3 = paquete;
+        }
+        
+        else if(getNumeroPaquetes() == 1)  {
+            this.paquete2 = paquete;
+        }
+        
+        else if(getNumeroPaquetes() == 0)  {
+            this.paquete1 = paquete;
+        }
     }
     /**
      * Calcula y devuelve el coste total del envío
@@ -101,8 +115,21 @@ public class Envio
      *  
      */
     public double calcularCosteTotalEnvio() {
-        //TODO
-        return 0;
+        double pFacturable = 0;
+        double coste = 0;
+        if(getNumeroPaquetes() == 1)    {
+            pFacturable = paquete1.calcularPesoFacturable();
+        }
+        
+        else if (getNumeroPaquetes() == 2)  {
+            pFacturable = paquete1.calcularPesoFacturable() + paquete2.calcularPesoFacturable();
+        }
+        
+        else if (getNumeroPaquetes() == 3)  {
+            pFacturable = paquete1.calcularPesoFacturable() + paquete2.calcularPesoFacturable() + paquete3.calcularPesoFacturable();
+        }
+        coste = Math.ceil(pFacturable) * PRECIO_KILO;
+        return coste;
 
     }
 
@@ -112,8 +139,33 @@ public class Envio
      * (leer enunciado)
      */
     public String toString() {
-        //TODO
-        return null;
+        int anchura = 20;
+        String varPaquete1 = "";
+        String varPaquete2 = "";
+        String varPaquete3 = "";
+        String formato = "";
+        
+        String coste = String.format("\n\n%" + anchura + "s%10.2f€", "Coste total envio: ", calcularCosteTotalEnvio());
+        
+        if(getNumeroPaquetes() == 1)    {
+            varPaquete1 = paquete1.toString();
+            formato = "Nº de paquetes: " + getNumeroPaquetes() + varPaquete1 + coste; 
+        }
+        
+        else if (getNumeroPaquetes() == 2)  {
+            varPaquete1 = paquete1.toString();
+            varPaquete2 = paquete2.toString();
+            formato = "Nº de paquetes: " + getNumeroPaquetes() + varPaquete1 + varPaquete2 + coste;  
+        }
+        
+        else if (getNumeroPaquetes() == 3)  {
+            varPaquete1 = paquete1.toString();
+            varPaquete2 = paquete2.toString();
+            varPaquete3 = paquete3.toString();
+            formato = "Nº de paquetes: " + getNumeroPaquetes() + varPaquete1 + varPaquete2 + varPaquete3 + coste;  
+        }
+        
+        return formato;
     }
 
     /**
