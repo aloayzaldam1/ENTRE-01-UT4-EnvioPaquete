@@ -122,7 +122,7 @@ public class Paquete
         String varVolumen = String.format("\n%" + anchura + "s%10.2f(cm3)", "Volumen: ", calcularVolumen());
         String varVolumetrico = String.format("\n%" + anchura + "s%10.2f(Kg)", "Peso volumétrico: ", calcularPesoVolumetrico());
         
-        String formato = "\nDescripcion del paquete " + dimension.toString() + varPeso + varVolumen + varVolumetrico; 
+        String formato = "\nDescripcion del paquete " + dimension.toString() + varPeso + varVolumen + varVolumetrico + "\n"; 
         return formato;
 
     }

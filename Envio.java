@@ -145,24 +145,24 @@ public class Envio
         String varPaquete3 = "";
         String formato = "";
         
-        String coste = String.format("\n\n%" + anchura + "s%10.2f€", "Coste total envio: ", calcularCosteTotalEnvio());
+        String coste = String.format("\n%" + anchura + "s%10.2f€", "Coste total envio: ", calcularCosteTotalEnvio());
         
         if(getNumeroPaquetes() == 1)    {
             varPaquete1 = paquete1.toString();
-            formato = "Nº de paquetes: " + getNumeroPaquetes() + varPaquete1 + coste; 
+            formato = "Nº de paquetes: " + getNumeroPaquetes() + varPaquete1 + coste + "\n"; 
         }
         
         else if (getNumeroPaquetes() == 2)  {
             varPaquete1 = paquete1.toString();
             varPaquete2 = paquete2.toString();
-            formato = "Nº de paquetes: " + getNumeroPaquetes() + varPaquete1 + varPaquete2 + coste;  
+            formato = "Nº de paquetes: " + getNumeroPaquetes() + varPaquete1 + varPaquete2 + coste + "\n";  
         }
         
         else if (getNumeroPaquetes() == 3)  {
             varPaquete1 = paquete1.toString();
             varPaquete2 = paquete2.toString();
             varPaquete3 = paquete3.toString();
-            formato = "Nº de paquetes: " + getNumeroPaquetes() + varPaquete1 + varPaquete2 + varPaquete3 + coste;  
+            formato = "Nº de paquetes: " + getNumeroPaquetes() + varPaquete1 + varPaquete2 + varPaquete3 + coste + "\n";  
         }
         
         return formato;
