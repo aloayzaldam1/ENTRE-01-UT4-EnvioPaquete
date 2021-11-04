@@ -20,7 +20,7 @@ public class TestEnvio
         envio.addPaquete(paquete2);
         envio.print();
         System.out.println("-------------------------------------");
-        Paquete paquete3 = new Paquete(new Dimension(50,50,70),35);
+        Paquete paquete3 = new Paquete(new Dimension(50,50,70),13);
         envio.addPaquete(paquete3);
         envio.print();
         System.out.println("-------------------------------------");

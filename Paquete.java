@@ -93,7 +93,7 @@ public class Paquete
         if(peso > calcularPesoVolumetrico())
             facturable = peso;
         else    {
-            peso = facturable;
+            facturable = calcularPesoVolumetrico();
         }
         
         return facturable;
